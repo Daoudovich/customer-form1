@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Evaluation Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 450px;
+    }
+    .page { display: none; }
+    .page.active { display: block; }
+    h2 { margin-top: 0; }
+    .options label {
+      display: block;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin: 6px 0;
+      cursor: pointer;
+    }
+    .options input { margin-right: 8px; }
+    button {
+      padding: 10px 18px;
+      background: #0073e6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+    button:hover { background: #005bb5; }
+    .nav-buttons { display: flex; justify-content: space-between; }
+    .progress { margin: 10px 0; font-size: 14px; color: #555; }
+    .logo { text-align: center; margin-bottom: 15px; }
+    .logo img { max-width: 120px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- Page 1: Welcome -->
+    <div class="page active" id="page1">
+      <div class="logo"><img src="your-logo.png" alt="Company Logo"></div>
+      <h2>Welcome!</h2>
+      <p>Thank you for taking the time to provide your feedback. Please enter your details below.</p>
+      <input type="text" id="name" placeholder="Your Name" style="width:100%;margin-bottom:10px;padding:8px;">
+      <input type="email" id="email" placeholder="Your Email" style="width:100%;margin-bottom:10px;padding:8px;">
+      <input type="tel" id="phone" placeholder="Your Phone" style="width:100%;margin-bottom:10px;padding:8px;">
+      <button onclick="nextPage()">Begin</button>
+    </div>
+    
+    <!-- Page 2: Question 1 -->
+    <div class="page" id="page2">
+      <div class="progress">Question 1 of 5</div>
+      <h2>How satisfied are you with our service?</h2>
+      <div class="options">
+        <label><input type="radio" name="q1" value="Very satisfied"> Very satisfied</label>
+        <label><input type="radio" name="q1" value="Satisfied"> Satisfied</label>
+        <label><input type="radio" name="q1" value="Neutral"> Neutral</label>
+        <label><input type="radio" name="q1" value="Dissatisfied"> Dissatisfied</label>
+        <label><input type="radio" name="q1" value="Very dissatisfied"> Very dissatisfied</label>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+    
+    <!-- Page 3: Question 2 -->
+    <div class="page" id="page3">
+      <div class="progress">Question 2 of 5</div>
+      <h2>How likely are you to recommend us to others?</h2>
+      <div class="options">
+        <label><input type="radio" name="q2" value="Very likely"> Very likely</label>
+        <label><input type="radio" name="q2" value="Likely"> Likely</label>
+        <label><input type="radio" name="q2" value="Neutral"> Neutral</label>
+        <label><input type="radio" name="q2" value="Unlikely"> Unlikely</label>
+        <label><input type="radio" name="q2" value="Very unlikely"> Very unlikely</label>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+    
+    <!-- Page 4: Question 3 -->
+    <div class="page" id="page4">
+      <div class="progress">Question 3 of 5</div>
+      <h2>How would you rate our product quality?</h2>
+      <div class="options">
+        <label><input type="radio" name="q3" value="Excellent"> Excellent</label>
+        <label><input type="radio" name="q3" value="Good"> Good</label>
+        <label><input type="radio" name="q3" value="Average"> Average</label>
+        <label><input type="radio" name="q3" value="Poor"> Poor</label>
+        <label><input type="radio" name="q3" value="Very poor"> Very poor</label>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+    
+    <!-- Page 5: Question 4 -->
+    <div class="page" id="page5">
+      <div class="progress">Question 4 of 5</div>
+      <h2>How would you rate our customer support?</h2>
+      <div class="options">
+        <label><input type="radio" name="q4" value="Excellent"> Excellent</label>
+        <label><input type="radio" name="q4" value="Good"> Good</label>
+        <label><input type="radio" name="q4" value="Average"> Average</label>
+        <label><input type="radio" name="q4" value="Poor"> Poor</label>
+        <label><input type="radio" name="q4" value="Very poor"> Very poor</label>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+    
+    <!-- Page 6: Question 5 -->
+    <div class="page" id="page6">
+      <div class="progress">Question 5 of 5</div>
+      <h2>Overall, how would you rate your experience with us?</h2>
+      <div class="options">
+        <label><input type="radio" name="q5" value="Excellent"> Excellent</label>
+        <label><input type="radio" name="q5" value="Good"> Good</label>
+        <label><input type="radio" name="q5" value="Average"> Average</label>
+        <label><input type="radio" name="q5" value="Poor"> Poor</label>
+        <label><input type="radio" name="q5" value="Very poor"> Very poor</label>
+      </div>
+      <div class="nav-buttons">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="submitForm()">Submit</button>
+      </div>
+    </div>
+    
+    <!-- Thank You Page -->
+    <div class="page" id="thankyou">
+      <h2>Thank You!</h2>
+      <p>Your responses have been recorded. We appreciate your feedback.</p>
+    </div>
+    
+  </div>
+
+  <script>
+    let currentPage = 1;
+    const totalPages = 6;
+
+    function showPage(page) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById("page" + page)?.classList.add('active');
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        showPage(currentPage);
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        showPage(currentPage);
+      }
+    }
+
+    function submitForm() {
+      const data = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        q1: document.querySelector('input[name="q1"]:checked')?.value,
+        q2: document.querySelector('input[name="q2"]:checked')?.value,
+        q3: document.querySelector('input[name="q3"]:checked')?.value,
+        q4: document.querySelector('input[name="q4"]:checked')?.value,
+        q5: document.querySelector('input[name="q5"]:checked')?.value,
+      };
+      console.log("Form submitted:", data);
+
+      // Replace this with your backend API call or Google Sheets integration
+      alert("Form submitted successfully!");
+
+      currentPage++;
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById("thankyou").classList.add("active");
+    }
+  </script>
+</body>
+</html>
